@@ -10,9 +10,8 @@
 
     <repositories>
         <repository>
-            <id>​Matador_GUI-repository</id>
+            <id>Matador_GUI-repository</id>
             <url>https://github.com/diplomit-dtu/Matador_GUI/raw/repository</url>
-            ​
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
