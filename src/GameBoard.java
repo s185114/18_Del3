@@ -17,6 +17,7 @@ public class GameBoard {
             fields[i] = new GUI_Street();
         }
 
+        // Start felt
         GUI_Start start = new GUI_Start();
         fields[0] = start;
         start.setTitle("Start");
@@ -85,12 +86,10 @@ public class GameBoard {
 /**
  * 7. felt - Fængsel (Ikke lavet...)
  */
-        GUI_Street Street5 = new GUI_Street();
+        GUI_Jail Street5 = new GUI_Jail();
         Street5.setTitle("Fængsel");
-        Street5.setRent("150");
-        Street5.setDescription("");
-        Street5.setTextColor(Color.black);
-        Street5.setSubText("");
+        Street5.setDescription("Du skal i fængsel!");
+        Street5.setSubText("Fængsel");
         fields[6] = Street5;
 
 
@@ -225,12 +224,10 @@ public class GameBoard {
 /**
  * 19. felt - Gå i fængsel (Ikke lavet...)
  */
-        GUI_Street Street17 = new GUI_Street();
-        Street17.setTitle("Gå i Fængsel");
-        Street17.setRent("");
-        Street17.setDescription("");
-        Street17.setTextColor(Color.black);
-        Street17.setSubText("");
+        GUI_Jail Street17 = new GUI_Jail();
+        Street17.setTitle("Fængsel");
+        Street17.setDescription("Du skal i fængsel!");
+        Street17.setSubText("Fængsel");
         fields[18] = Street17;
 
 /**
