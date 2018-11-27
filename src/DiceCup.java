@@ -7,7 +7,7 @@ public class DiceCup {
     }
 
     private static int cup() {
-        return roll() + roll();
+        return roll();
     }
 
     public static int getcup() {
