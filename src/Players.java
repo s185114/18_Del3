@@ -20,6 +20,11 @@ public class Players {
             this.balance = balance;
     }
 
+
+
+
+    // spiller= new Players[3];
+
     /**
      * bare lige en hurtig skitse, hvis det skal være, kan banken også flyttes ud til sin egen klasse, hvor spilleren så kan oprette en indstans af banken, men dette ville nok ikke være specielt mere GFRASP end det her.
      */

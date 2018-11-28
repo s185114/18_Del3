@@ -23,7 +23,7 @@ public class GameBoard {
         start.setTitle("Start");
         start.setSubText("Modtag: 400");
 
-/**
+ /**
  * 2. felt
  */
         GUI_Street Street = new GUI_Street();
@@ -55,7 +55,6 @@ public class GameBoard {
         Street2.getTitle();
         Street2.setDescription("");
         Street2.setSubText("Chance");
-
         fields[3] = Street2;
 
 
@@ -124,7 +123,6 @@ public class GameBoard {
         Street8.getTitle();
         Street8.setDescription("");
         Street8.setSubText("Chance");
-
         fields[9] = Street8;
 
 /**
@@ -194,7 +192,6 @@ public class GameBoard {
         Street14.getTitle();
         Street14.setDescription("");
         Street14.setSubText("Chance");
-
         fields[15] = Street14;
 
 /**
@@ -261,7 +258,6 @@ public class GameBoard {
         Street20.getTitle();
         Street20.setDescription("");
         Street20.setSubText("Chance");
-
         fields[21] = Street20;
 
 /**
@@ -289,31 +285,38 @@ public class GameBoard {
         fields[23] = Street22;
 
 
-
         GUI gui = new GUI(fields);
 
-        //Player1 skal erstattes med vores array af spillere (eks. "Player[]")
-        GUI_Player player1 = new GUI_Player("Player 1");
-        gui.addPlayer(player1);
 
-
-        //En lille demo
-        player1.setBalance(1000);
-        fields[0].setCar(player1, true);
+          int x =2;
+        GUI_Player[] player = {new GUI_Player("Player 1"), new GUI_Player("Player 2"), new GUI_Player("Player 3"), new GUI_Player("Player 4")};
+      /*  gui.addPlayer(player[0]);
+        gui.addPlayer(player[1]);
+        gui.addPlayer(player[2]);
+        gui.addPlayer(player[3]);
+*/
+//En lille demo
+        int antalSpillere=gui.getUserInteger("Indtast antal spillere", 2, 4);
+        for (int i=0; i<antalSpillere; i++){
+            gui.addPlayer(player[i]);
+        }
+        player[x].setBalance(1000);
+        fields[0].setCar(player[x], true);
         gui.showMessage("Slå med terningerne");
-        fields[0].setCar(player1, false);
+        fields[0].setCar(player[x], false);
         gui.setDice(1, 1);
 
-        player1.setBalance(400);
-        fields[2].setCar(player1, true);
+        player[x].setBalance(400);
+        fields[2].setCar(player[x], true);
         gui.showMessage("Næste kast");
-        fields[2].setCar(player1, false);
+        fields[2].setCar(player[x], false);
         gui.setDice(3, 1);
 
-        player1.setBalance(0);
-        fields[6].setCar(player1, true);
+        player[x].setBalance(0);
+        fields[6].setCar(player[x], true);
         gui.showMessage("Test slut");
-        fields[6].setCar(player1, false);
+        fields[6].setCar(player[x], false);
+
 
     }
 }
