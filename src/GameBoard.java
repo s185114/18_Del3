@@ -1,12 +1,7 @@
 import gui_fields.*;
 import gui_main.GUI;
-import gui_tests.ImageFrame;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class GameBoard {
     public static void main(String[] args) {
@@ -23,9 +18,9 @@ public class GameBoard {
         start.setTitle("Start");
         start.setSubText("Modtag: 400");
 
- /**
- * 2. felt
- */
+        /**
+         * 2. felt
+         */
         GUI_Street Street = new GUI_Street();
         Street.setTitle("Burgerbaren");
         Street.setBackGroundColor(Color.ORANGE);
@@ -117,8 +112,8 @@ public class GameBoard {
         fields[8] = Street7;
 
 /**
-* 10. felt - Chance (Ikke færdig)
-*/
+ * 10. felt - Chance (Ikke færdig)
+ */
         GUI_Chance Street8 = new GUI_Chance();
         Street8.getTitle();
         Street8.setDescription("");
@@ -288,7 +283,7 @@ public class GameBoard {
         GUI gui = new GUI(fields);
 
 
-          int x =2;
+        // for at vælge navn kan vi bruge metoden getUserString
         GUI_Player[] player = {new GUI_Player("Player 1"), new GUI_Player("Player 2"), new GUI_Player("Player 3"), new GUI_Player("Player 4")};
       /*  gui.addPlayer(player[0]);
         gui.addPlayer(player[1]);
@@ -296,30 +291,43 @@ public class GameBoard {
         gui.addPlayer(player[3]);
 */
 //En lille demo
-        int antalSpillere=gui.getUserInteger("Indtast antal spillere", 2, 4);
-        for (int i=0; i<antalSpillere; i++){
+        // Her vælger man hvor mange spillere der skal være med.
+        int antalSpillere = gui.getUserInteger("Indtast antal spillere", 2, 4);
+        for (int i = 0; i < antalSpillere; i++) {
             gui.addPlayer(player[i]);
         }
-        player[x].setBalance(1000);
-        fields[0].setCar(player[x], true);
-        gui.showMessage("Slå med terningerne");
-        fields[0].setCar(player[x], false);
-        gui.setDice(1, 1);
 
-        player[x].setBalance(400);
-        fields[2].setCar(player[x], true);
-        gui.showMessage("Næste kast");
-        fields[2].setCar(player[x], false);
-        gui.setDice(3, 1);
+// Her får vi spillerne til at slå på skift
+        for (int i = 0; i < antalSpillere; i++) {
+            while (player[i].getBalance() > 0) {
+                for (int j = 0; j < antalSpillere; j++) {
 
-        player[x].setBalance(0);
-        fields[6].setCar(player[x], true);
-        gui.showMessage("Test slut");
-        fields[6].setCar(player[x], false);
+                    //player[j].setBalance(1000);
+                    fields[0].setCar(player[j], true);
+                    gui.showMessage("Slå med terningerne");
+                    fields[0].setCar(player[j], false);
+                    gui.setDie(DiceCup.getCup());
 
 
+            /*
+            player[x].setBalance(400);
+            fields[2].setCar(player[x], true);
+            gui.showMessage("Næste kast");
+            fields[2].setCar(player[x], false);
+            gui.setDice(3, 1);
+
+            player[x].setBalance(0);
+            fields[6].setCar(player[x], true);
+            gui.showMessage("Test slut");
+            fields[6].setCar(player[x], false);
+            */
+                }
+            }
+        }
         //bare for at teste valg af spillerantal
-        Controller c =new Controller();
+        Controller c = new Controller();
         c.passende_navn();
+
+
     }
 }

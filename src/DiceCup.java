@@ -6,11 +6,11 @@ public class DiceCup {
         return t3 + 1;
     }
 
-    private static int cup() {
+    private static int Cup() {
         return roll();
     }
 
-    public static int getcup() {
-        return cup();
+    public static int getCup() {
+        return Cup();
     }
 }
