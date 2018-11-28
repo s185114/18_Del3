@@ -23,5 +23,19 @@ public class Input {
         //dice.getcup();
     }
 
+    int inSpil(){
+        int k=0;
+        //while (k==0) {
+            if (Scanner.hasNextInt()) {
+                k = Scanner.nextInt();
+            } else {System.out.println("Prøv igen");}
+        //}
+        if (k>4){
+            k=4;
+        }else if(k<2){
+            k=2;
+        }
+        return k;
+    }
 
 }

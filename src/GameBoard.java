@@ -315,5 +315,8 @@ public class GameBoard {
         gui.showMessage("Test slut");
         fields[6].setCar(player1, false);
 
+        //bare for at teste valg af spillerantal
+        Controller c =new Controller();
+        c.passende_navn();
     }
 }
