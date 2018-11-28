@@ -318,5 +318,8 @@ public class GameBoard {
         fields[6].setCar(player[x], false);
 
 
+        //bare for at teste valg af spillerantal
+        Controller c =new Controller();
+        c.passende_navn();
     }
 }
