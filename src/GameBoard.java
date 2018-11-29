@@ -1,16 +1,10 @@
 import gui_fields.*;
 import gui_main.GUI;
-
 import java.awt.*;
 
 public class GameBoard {
     public static void main(String[] args) {
         GUI_Field[] fields = new GUI_Field[24];
-
-        //Opretter en placeholder for alle felter
-        for (int i = 1; i < 24; i++) {
-            fields[i] = new GUI_Street();
-        }
 
         // Start felt
         GUI_Start start = new GUI_Start();
@@ -22,7 +16,7 @@ public class GameBoard {
         GUI_Street Street = new GUI_Street();
         Street.setTitle("Burgerbaren");
         Street.setBackGroundColor(Color.ORANGE);
-        Street.setRent("100,-");
+        Street.setRent("100");
         Street.setDescription("");
         Street.setTextColor(Color.black);
         Street.setSubText("Pris: 100");
@@ -266,8 +260,13 @@ public class GameBoard {
                         //Når man passere/lander på start får man +400 på kontoen.
                         player[j].setBalance(player[j].getBalance() + 400);
                     }
-
-                    fields[Ryk[j]].setCar(player[j], true);
+if(Ryk[j]==18){
+    fields[6].setCar(player[j], true);
+    gui.showMessage("Du kørte for stærkt og skal i fængsel!");
+    Ryk[j]=6;
+}else {
+    fields[Ryk[j]].setCar(player[j], true);
+}
 
                     // Printer terningen i gui.
                     gui.setDie(Terningeslag);
