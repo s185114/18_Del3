@@ -278,15 +278,15 @@ public class GameBoard {
 
         GUI gui = new GUI(fields);
 
+        // Lav din egen bil WOOOOOOOOOOW!
+        GUI_Car car1 = new GUI_Car(Color.RED, Color.RED, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
+        GUI_Car car2 = new GUI_Car(Color.BLUE, Color.BLUE, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL);
+        GUI_Car car3 = new GUI_Car(Color.YELLOW, Color.YELLOW, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL);
+        GUI_Car car4 = new GUI_Car(Color.BLACK, Color.BLACK, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL);
 
         // for at vælge navn kan vi bruge metoden getUserString
-        GUI_Player[] player = {new GUI_Player("Player 1"), new GUI_Player("Player 2"), new GUI_Player("Player 3"), new GUI_Player("Player 4")};
-      /*  gui.addPlayer(player[0]);
-        gui.addPlayer(player[1]);
-        gui.addPlayer(player[2]);
-        gui.addPlayer(player[3]);
-*/
-//En lille demo
+        GUI_Player[] player = {new GUI_Player("Player 1", 1000, car1), new GUI_Player("Player 2", 1000, car2), new GUI_Player("Player 3", 1000, car3), new GUI_Player("Player 4", 1000, car4)};
+
         // Her vælger man hvor mange spillere der skal være med.
         int antalSpillere = gui.getUserInteger("Indtast antal spillere", 2, 4);
         for (int i = 0; i < antalSpillere; i++) {
@@ -299,16 +299,16 @@ public class GameBoard {
         for (int i = 0; i < antalSpillere; i++) {
             while (player[i].getBalance() > 0) {
                 for (int j = 0; j < antalSpillere; j++) {
-                    OldRyk[j]=Ryk[j];
+                    OldRyk[j] = Ryk[j];
                     // Definere et terningeslag.
-                    int Terningeslag =DiceCup.getCup();
+                    int Terningeslag = DiceCup.getCup();
 
                     // Går at man kan rykke fremad på banen.
-                    Ryk[j]+=Terningeslag;
+                    Ryk[j] += Terningeslag;
 
                     // Går sådan at man kan loope banen igennem.
-                    if (Ryk[j]>23){
-                        Ryk[j]=(Ryk[j]%23)-1;
+                    if (Ryk[j] > 23) {
+                        Ryk[j] = (Ryk[j] % 23) - 1;
                     }
 
                     gui.showMessage("Slå med terningen");
