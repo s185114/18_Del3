@@ -18,9 +18,7 @@ public class GameBoard {
         start.setTitle("Start");
         start.setSubText("Modtag: 400");
 
-        /**
-         * 2. felt
-         */
+        //2. felt
         GUI_Street Street = new GUI_Street();
         Street.setTitle("Burgerbaren");
         Street.setBackGroundColor(Color.ORANGE);
@@ -30,10 +28,7 @@ public class GameBoard {
         Street.setSubText("Pris: 100");
         fields[1] = Street;
 
-
-/**
- * 3. felt
- */
+        //3. felt
         GUI_Street Street1 = new GUI_Street();
         Street1.setTitle("Pizzahuset");
         Street1.setBackGroundColor(Color.ORANGE);
@@ -43,18 +38,13 @@ public class GameBoard {
         Street1.setSubText("Pris: 100");
         fields[2] = Street1;
 
-/**
- * 4. felt - Chancekort (Ikke færdig)
- */
+        //4. felt - Chancekort
         GUI_Chance Street2 = new GUI_Chance();
         Street2.setDescription("");
         Street2.setSubText("Chance");
         fields[3] = Street2;
 
-
-/**
- * 5. felt
- */
+        //5. felt
         GUI_Street Street3 = new GUI_Street();
         Street3.setTitle("Slikbutikken");
         Street3.setBackGroundColor(Color.gray);
@@ -64,9 +54,7 @@ public class GameBoard {
         Street3.setSubText("Pris: 150");
         fields[4] = Street3;
 
-/**
- * 6. felt
- */
+        //6. felt
         GUI_Street Street4 = new GUI_Street();
         Street4.setTitle("Iskiosken");
         Street4.setBackGroundColor(Color.gray);
@@ -76,19 +64,14 @@ public class GameBoard {
         Street4.setSubText("Pris: 150");
         fields[5] = Street4;
 
-/**
- * 7. felt - Fængsel (Ikke lavet...)
- */
+        //7. felt - Fængsel
         GUI_Jail Street5 = new GUI_Jail();
         Street5.setTitle("Fængsel");
-        Street5.setDescription("Du skal i fængsel!");
+        Street5.setDescription("Hvis du lander her er du på bare på besøg i fængslet.");
         Street5.setSubText("Fængsel");
         fields[6] = Street5;
 
-
-/**
- * 8. felt
- */
+        //8. felt
         GUI_Street Street6 = new GUI_Street();
         Street6.setTitle("Museet");
         Street6.setBackGroundColor(Color.pink);
@@ -98,9 +81,7 @@ public class GameBoard {
         Street6.setSubText("Pris: 200");
         fields[7] = Street6;
 
-/**
- * 9. felt
- */
+        //9. felt
         GUI_Street Street7 = new GUI_Street();
         Street7.setTitle("Bibloteket");
         Street7.setBackGroundColor(Color.pink);
@@ -110,17 +91,13 @@ public class GameBoard {
         Street7.setSubText("Pris: 200");
         fields[8] = Street7;
 
-/**
- * 10. felt - Chance (Ikke færdig)
- */
+        //10. felt - Chance (Ikke færdig)
         GUI_Chance Street8 = new GUI_Chance();
         Street8.setDescription("");
         Street8.setSubText("Chance");
         fields[9] = Street8;
 
-/**
- * 11. felt
- */
+        //11. felt
         GUI_Street Street9 = new GUI_Street();
         Street9.setTitle("Skaterparken");
         Street9.setBackGroundColor(Color.yellow);
@@ -130,9 +107,7 @@ public class GameBoard {
         Street9.setSubText("Pris: 250");
         fields[10] = Street9;
 
-/**
- * 12. felt
- */
+        //12. felt
         GUI_Street Street10 = new GUI_Street();
         Street10.setTitle("Svømmebassin");
         Street10.setBackGroundColor(Color.yellow);
@@ -142,10 +117,7 @@ public class GameBoard {
         Street10.setSubText("Pris: 250");
         fields[11] = Street10;
 
-
-/**
- * 13. felt - Gratis parkering (Ikke lavet....)
- */
+        //13. felt - Gratis parkering (Ikke lavet....)
         GUI_Street Street11 = new GUI_Street();
         Street11.setTitle("Gratis Parkering");
         Street11.setRent("");
@@ -154,9 +126,7 @@ public class GameBoard {
         Street11.setSubText("Gratis parkering");
         fields[12] = Street11;
 
-/**
- * 14. felt
- */
+        //14. felt
         GUI_Street Street12 = new GUI_Street();
         Street12.setTitle("Spillehallen");
         Street12.setBackGroundColor(Color.red);
@@ -166,9 +136,7 @@ public class GameBoard {
         Street12.setSubText("Pris: 300");
         fields[13] = Street12;
 
-/**
- * 15. felt
- */
+        //15. felt
         GUI_Street Street13 = new GUI_Street();
         Street13.setTitle("Biografen");
         Street13.setBackGroundColor(Color.red);
@@ -178,17 +146,13 @@ public class GameBoard {
         Street13.setSubText("Pris: 300");
         fields[14] = Street13;
 
-/**
- * 16. felt
- */
+        //16. felt
         GUI_Chance Street14 = new GUI_Chance();
         Street14.setDescription("");
         Street14.setSubText("Chance");
         fields[15] = Street14;
 
-/**
- * 17. felt
- */
+        // 17. felt
         GUI_Street Street15 = new GUI_Street();
         Street15.setTitle("Legetøjsbutikken");
         Street15.setBackGroundColor(Color.yellow);
@@ -198,9 +162,7 @@ public class GameBoard {
         Street15.setSubText("Pris: 350");
         fields[16] = Street15;
 
-/**
- * 18. felt
- */
+        //18. felt
         GUI_Street Street16 = new GUI_Street();
         Street16.setTitle("Dyrehandlen");
         Street16.setBackGroundColor(Color.yellow);
@@ -210,18 +172,14 @@ public class GameBoard {
         Street16.setSubText("Pris: 350");
         fields[17] = Street16;
 
-/**
- * 19. felt - Gå i fængsel (Ikke lavet...)
- */
+        //19. felt - Gå i fængsel
         GUI_Jail Street17 = new GUI_Jail();
-        Street17.setTitle("Fængsel");
+        Street17.setTitle("Gå i fængsel");
         Street17.setDescription("Du skal i fængsel!");
-        Street17.setSubText("Fængsel");
+        Street17.setSubText("Gå i fængsel");
         fields[18] = Street17;
 
-/**
- * 20. felt
- */
+        //20. felt
         GUI_Street Street18 = new GUI_Street();
         Street18.setTitle("Bowlinghallen");
         Street18.setBackGroundColor(Color.green);
@@ -231,9 +189,7 @@ public class GameBoard {
         Street18.setSubText("Pris: 400");
         fields[19] = Street18;
 
-/**
- * 21. felt
- */
+        //21. felt
         GUI_Street Street19 = new GUI_Street();
         Street19.setTitle("Zoologisk have");
         Street19.setBackGroundColor(Color.green);
@@ -243,17 +199,13 @@ public class GameBoard {
         Street19.setSubText("Pris: 400");
         fields[20] = Street19;
 
-/**
- * 22. felt - Chance (Ikke færdig..)
- */
+        //22. felt - Chance
         GUI_Chance Street20 = new GUI_Chance();
         Street20.setDescription("");
         Street20.setSubText("Chance");
         fields[21] = Street20;
 
-/**
- * 23. felt
- */
+        //23. felt
         GUI_Street Street21 = new GUI_Street();
         Street21.setTitle("Vandlandet");
         Street21.setBackGroundColor(Color.blue);
@@ -263,9 +215,7 @@ public class GameBoard {
         Street21.setSubText("Pris: 450");
         fields[22] = Street21;
 
-/**
- * 24. felt
- */
+        //24. felt
         GUI_Street Street22 = new GUI_Street();
         Street22.setTitle("Strandpromenaden");
         Street22.setBackGroundColor(Color.blue);
@@ -275,10 +225,10 @@ public class GameBoard {
         Street22.setSubText("Pris: 450");
         fields[23] = Street22;
 
-
         GUI gui = new GUI(fields);
 
-        // Lav din egen bil WOOOOOOOOOOW!
+
+        // Lav din egen bil WOOHOOOOOO!
         GUI_Car car1 = new GUI_Car(Color.RED, Color.RED, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
         GUI_Car car2 = new GUI_Car(Color.BLUE, Color.BLUE, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL);
         GUI_Car car3 = new GUI_Car(Color.YELLOW, Color.YELLOW, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL);
@@ -306,13 +256,17 @@ public class GameBoard {
                     // Går at man kan rykke fremad på banen.
                     Ryk[j] += Terningeslag;
 
+                    gui.showMessage("Slå med terningen");
+                    fields[OldRyk[j]].setCar(player[j], false);
+
                     // Går sådan at man kan loope banen igennem.
                     if (Ryk[j] > 23) {
                         Ryk[j] = (Ryk[j] % 23) - 1;
+
+                        //Når man passere/lander på start får man +400 på kontoen.
+                        player[j].setBalance(player[j].getBalance() + 400);
                     }
 
-                    gui.showMessage("Slå med terningen");
-                    fields[OldRyk[j]].setCar(player[j], false);
                     fields[Ryk[j]].setCar(player[j], true);
 
                     // Printer terningen i gui.
