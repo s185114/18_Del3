@@ -294,11 +294,12 @@ public class GameBoard {
             fields[0].setCar(player[i], true);
         }
         int[] Ryk = new int[antalSpillere];
+        int[] OldRyk = new int[antalSpillere];
 // Her får vi spillerne til at slå på skift.
         for (int i = 0; i < antalSpillere; i++) {
             while (player[i].getBalance() > 0) {
                 for (int j = 0; j < antalSpillere; j++) {
-
+                    OldRyk[j]=Ryk[j];
                     // Definere et terningeslag.
                     int Terningeslag =DiceCup.getCup();
 
@@ -311,25 +312,11 @@ public class GameBoard {
                     }
 
                     gui.showMessage("Slå med terningen");
-                    fields[0].setCar(player[j], false);
+                    fields[OldRyk[j]].setCar(player[j], false);
                     fields[Ryk[j]].setCar(player[j], true);
 
                     // Printer terningen i gui.
                     gui.setDie(Terningeslag);
-
-
-            /*
-            player[x].setBalance(400);
-            fields[2].setCar(player[x], true);
-            gui.showMessage("Næste kast");
-            fields[2].setCar(player[x], false);
-            gui.setDice(3, 1);
-
-            player[x].setBalance(0);
-            fields[6].setCar(player[x], true);
-            gui.showMessage("Test slut");
-            fields[6].setCar(player[x], false);
-            */
                 }
             }
         }
