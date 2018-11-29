@@ -47,7 +47,6 @@ public class GameBoard {
  * 4. felt - Chancekort (Ikke færdig)
  */
         GUI_Chance Street2 = new GUI_Chance();
-        Street2.getTitle();
         Street2.setDescription("");
         Street2.setSubText("Chance");
         fields[3] = Street2;
@@ -115,7 +114,6 @@ public class GameBoard {
  * 10. felt - Chance (Ikke færdig)
  */
         GUI_Chance Street8 = new GUI_Chance();
-        Street8.getTitle();
         Street8.setDescription("");
         Street8.setSubText("Chance");
         fields[9] = Street8;
@@ -184,7 +182,6 @@ public class GameBoard {
  * 16. felt
  */
         GUI_Chance Street14 = new GUI_Chance();
-        Street14.getTitle();
         Street14.setDescription("");
         Street14.setSubText("Chance");
         fields[15] = Street14;
@@ -250,7 +247,6 @@ public class GameBoard {
  * 22. felt - Chance (Ikke færdig..)
  */
         GUI_Chance Street20 = new GUI_Chance();
-        Street20.getTitle();
         Street20.setDescription("");
         Street20.setSubText("Chance");
         fields[21] = Street20;
@@ -295,18 +291,31 @@ public class GameBoard {
         int antalSpillere = gui.getUserInteger("Indtast antal spillere", 2, 4);
         for (int i = 0; i < antalSpillere; i++) {
             gui.addPlayer(player[i]);
+            fields[0].setCar(player[i], true);
         }
-
-// Her får vi spillerne til at slå på skift
+        int[] Ryk = new int[antalSpillere];
+// Her får vi spillerne til at slå på skift.
         for (int i = 0; i < antalSpillere; i++) {
             while (player[i].getBalance() > 0) {
                 for (int j = 0; j < antalSpillere; j++) {
 
-                    //player[j].setBalance(1000);
-                    fields[0].setCar(player[j], true);
-                    gui.showMessage("Slå med terningerne");
+                    // Definere et terningeslag.
+                    int Terningeslag =DiceCup.getCup();
+
+                    // Går at man kan rykke fremad på banen.
+                    Ryk[j]+=Terningeslag;
+
+                    // Går sådan at man kan loope banen igennem.
+                    if (Ryk[j]>23){
+                        Ryk[j]=(Ryk[j]%23)-1;
+                    }
+
+                    gui.showMessage("Slå med terningen");
                     fields[0].setCar(player[j], false);
-                    gui.setDie(DiceCup.getCup());
+                    fields[Ryk[j]].setCar(player[j], true);
+
+                    // Printer terningen i gui.
+                    gui.setDie(Terningeslag);
 
 
             /*
