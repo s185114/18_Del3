@@ -229,10 +229,10 @@ public class GameBoard {
         GUI_Car car1 = new GUI_Car(Color.RED, Color.RED, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
         GUI_Car car2 = new GUI_Car(Color.BLUE, Color.BLUE, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL);
         GUI_Car car3 = new GUI_Car(Color.YELLOW, Color.YELLOW, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL);
-        GUI_Car car4 = new GUI_Car(Color.BLACK, Color.BLACK, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL);
+        GUI_Car car4 = new GUI_Car(Color.PINK, Color.PINK, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL);
 
         // for at vælge navn kan vi bruge metoden getUserString
-        GUI_Player[] player = {new GUI_Player("Player 1", 10, car1), new GUI_Player("Player 2", 1000, car2), new GUI_Player("Player 3", 1000, car3), new GUI_Player("Player 4", 1000, car4)};
+        GUI_Player[] player = {new GUI_Player("Player 1", 1000, car1), new GUI_Player("Player 2", 1000, car2), new GUI_Player("Player 3", 1000, car3), new GUI_Player("Player 4", 1000, car4)};
 
         //Introduktion
         gui.showMessage("Introduktion");
@@ -249,6 +249,11 @@ public class GameBoard {
         boolean ja;
         boolean ja1;
         String kort;
+        Color[] colors = new Color[4];
+        colors[0] = Color.red;
+        colors[1] = Color.blue;
+        colors[2] = Color.yellow;
+        colors[3] = Color.pink;
 // Her får vi spillerne til at slå på skift.
         for (int i = 0; i < antalSpillere; i++) {
             while (player[i].getBalance() > 0) {
@@ -285,32 +290,301 @@ public class GameBoard {
                         gui.setDie(Terningeslag);
 
                         //For køb af grund TODO
+                        if (Ryk[j] == 1) {
+                            String rent = Street.getRent();
+                            if (Street.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street.setOwnerName(player[j].getName());
+                                    Street.setBorder(colors[j]);
+                                }
+                            } else {
+                                if (Street.getOwnerName() != player[j].getName()) {
+                                    for (int c = 0; c < antalSpillere; c++) {
+                                        if (Street.getOwnerName() == player[c].getName()) {
+                                            player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                        }
+                                    }
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                                }
+                            }
+                        }
                         if (Ryk[j] == 2) {
                             String rent = Street1.getRent();
-                            if(Street1.getOwnerName()==null) {
+                            if (Street1.getOwnerName() == null) {
                                 ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
                                 if (ja) {
                                     player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
                                     Street1.setOwnerName(player[j].getName());
-                                    Street1.setBorder(Color.red);
+                                    Street1.setBorder(colors[j]);
                                 }
-                            }else{
-                                if(Street1.getOwnerName() == player[j].getName()){
-                                }else{
-                                    for(int c=0;c<antalSpillere;c++) {
-                                        if (Street1.getOwnerName() == player[c].getName()) {
-                                            player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent)/2);
-                                            System.out.println("Hej jeg er sand");
-                                        }
+                            } else if (Street1.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street1.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
                                     }
-                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent)/2);
                                 }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
                             }
-
+                        }
+                        if (Ryk[j] == 4) {
+                            String rent = Street3.getRent();
+                            if (Street3.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street3.setOwnerName(player[j].getName());
+                                    Street3.setBorder(colors[j]);
+                                }
+                            } else if (Street3.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street3.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+                        if (Ryk[j] == 5) {
+                            String rent = Street4.getRent();
+                            if (Street4.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street4.setOwnerName(player[j].getName());
+                                    Street4.setBorder(colors[j]);
+                                }
+                            } else if (Street4.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street4.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+                        if (Ryk[j] == 7) {
+                            String rent = Street6.getRent();
+                            if (Street6.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street6.setOwnerName(player[j].getName());
+                                    Street6.setBorder(colors[j]);
+                                }
+                            } else if (Street6.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street6.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+                        if (Ryk[j] == 8) {
+                            String rent = Street7.getRent();
+                            if (Street7.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street7.setOwnerName(player[j].getName());
+                                    Street7.setBorder(colors[j]);
+                                }
+                            } else if (Street7.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street7.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
                         }
 
+                        if (Ryk[j] == 10) {
+                            String rent = Street9.getRent();
+                            if (Street9.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street9.setOwnerName(player[j].getName());
+                                    Street9.setBorder(colors[j]);
+                                }
+                            } else if (Street9.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street9.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
 
+                        if (Ryk[j] == 11) {
+                            String rent = Street10.getRent();
+                            if (Street10.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street10.setOwnerName(player[j].getName());
+                                    Street10.setBorder(colors[j]);
+                                }
+                            } else if (Street10.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street10.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
 
+                        if (Ryk[j] == 13) {
+                            String rent = Street12.getRent();
+                            if (Street12.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street12.setOwnerName(player[j].getName());
+                                    Street12.setBorder(colors[j]);
+                                }
+                            } else if (Street12.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street12.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+
+                        if (Ryk[j] == 14) {
+                            String rent = Street13.getRent();
+                            if (Street13.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street13.setOwnerName(player[j].getName());
+                                    Street13.setBorder(colors[j]);
+                                }
+                            } else if (Street4.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street13.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+                        if (Ryk[j] == 16) {
+                            String rent = Street15.getRent();
+                            if (Street15.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street15.setOwnerName(player[j].getName());
+                                    Street15.setBorder(colors[j]);
+                                }
+                            } else if (Street15.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street15.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+                        if (Ryk[j] == 17) {
+                            String rent = Street16.getRent();
+                            if (Street16.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street16.setOwnerName(player[j].getName());
+                                    Street16.setBorder(colors[j]);
+                                }
+                            } else if (Street16.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street16.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+                        if (Ryk[j] == 19) {
+                            String rent = Street18.getRent();
+                            if (Street18.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street18.setOwnerName(player[j].getName());
+                                    Street18.setBorder(colors[j]);
+                                }
+                            } else if (Street18.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street18.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+                        if (Ryk[j] == 20) {
+                            String rent = Street19.getRent();
+                            if (Street19.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street19.setOwnerName(player[j].getName());
+                                    Street19.setBorder(colors[j]);
+                                }
+                            } else if (Street19.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street19.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+                        if (Ryk[j] == 22) {
+                            String rent = Street21.getRent();
+                            if (Street21.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street21.setOwnerName(player[j].getName());
+                                    Street21.setBorder(colors[j]);
+                                }
+                            } else if (Street21.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street21.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
+
+                        if (Ryk[j] == 23) {
+                            String rent = Street22.getRent();
+                            if (Street22.getOwnerName() == null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
+                                    Street22.setOwnerName(player[j].getName());
+                                    Street22.setBorder(colors[j]);
+                                }
+                            } else if (Street22.getOwnerName() != player[j].getName()) {
+                                for (int c = 0; c < antalSpillere; c++) {
+                                    if (Street22.getOwnerName() == player[c].getName()) {
+                                        player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent) / 2);
+                                    }
+                                }
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent) / 2);
+                            }
+                        }
 
 
                         //For at trække chancekort TODO
