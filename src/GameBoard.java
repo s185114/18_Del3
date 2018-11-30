@@ -272,7 +272,7 @@ public class GameBoard {
                     // Printer terningen i gui.
                     gui.setDie(Terningeslag);
 
-                    //For køb af grund TODO
+                    //For køb af grund
                     if (Ryk[j] == 1) {
                         String rent = Street.getRent();
                         if (Street.getOwnerName() == null) {
@@ -569,16 +569,13 @@ public class GameBoard {
                         }
                     }
 
-
-                    //For at trække chancekort TODO
+                    //For at trække chancekort
                     if (Ryk[j] == 3 || Ryk[j] == 9 || Ryk[j] == 15 || Ryk[j] == 21) {
                         Chance.blandKort();
-                        System.out.println(Chance.kort[0]);
-                        System.out.println(Chance.kort[1]);
                         kort = Chance.trækkort();
                         gui.displayChanceCard(kort);
 
-
+//Chance kort er ikke færdige og virker derfor ikke
                         if (kort == Chance.kort[0]) {
                             fields[0].setCar(player[j], true);
                             Ryk[j] = 0;
