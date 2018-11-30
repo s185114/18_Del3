@@ -218,6 +218,8 @@ public class GameBoard {
 
         //Introduktion
         gui.showMessage("Introduktion");
+        gui.showMessage("Dette er et Monopoly Junior spil");
+        gui.showMessage("Man vinder spillet ved at være den med flest penge, når en spiller går fallit");
 
         // Her vælger man hvor mange spillere der skal være med.
         int antalSpillere = gui.getUserInteger("Indtast antal spillere", 2, 4);
@@ -243,7 +245,7 @@ public class GameBoard {
                     if (player[OldPlayer].getBalance() > 0) {
                         OldRyk[j] = Ryk[j];
                         // Definere et terningeslag.
-                        int Terningeslag = 1;
+                        int Terningeslag = DiceCup.getCup();
 
                         // Går at man kan rykke fremad på banen.
                         Ryk[j] += Terningeslag;
