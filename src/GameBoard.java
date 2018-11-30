@@ -20,7 +20,6 @@ public class GameBoard {
         Street.setBackGroundColor(Color.ORANGE);
         Street.setRent("100");
         Street.setDescription("");
-        Street.setTextColor(Color.black);
         Street.setSubText("Pris: 100");
         fields[1] = Street;
 
@@ -30,14 +29,13 @@ public class GameBoard {
         Street1.setBackGroundColor(Color.ORANGE);
         Street1.setRent("100");
         Street1.setDescription("");
-        Street1.setTextColor(Color.black);
         Street1.setSubText("Pris: 100");
         Street1.getOwnerName();
         fields[2] = Street1;
 
         //4. felt - Chancekort
         GUI_Chance Street2 = new GUI_Chance();
-        Street2.setDescription("");
+        Street2.setDescription("Træk et chancekort");
         Street2.setSubText("Chance");
         fields[3] = Street2;
 
@@ -47,7 +45,6 @@ public class GameBoard {
         Street3.setBackGroundColor(Color.gray);
         Street3.setRent("150");
         Street3.setDescription("");
-        Street3.setTextColor(Color.black);
         Street3.setSubText("Pris: 150");
         fields[4] = Street3;
 
@@ -57,7 +54,6 @@ public class GameBoard {
         Street4.setBackGroundColor(Color.gray);
         Street4.setRent("150");
         Street4.setDescription("");
-        Street4.setTextColor(Color.black);
         Street4.setSubText("Pris: 150");
         fields[5] = Street4;
 
@@ -74,7 +70,6 @@ public class GameBoard {
         Street6.setBackGroundColor(Color.pink);
         Street6.setRent("200");
         Street6.setDescription("");
-        Street6.setTextColor(Color.black);
         Street6.setSubText("Pris: 200");
         fields[7] = Street6;
 
@@ -84,13 +79,12 @@ public class GameBoard {
         Street7.setBackGroundColor(Color.pink);
         Street7.setRent("200");
         Street7.setDescription("");
-        Street7.setTextColor(Color.black);
         Street7.setSubText("Pris: 200");
         fields[8] = Street7;
 
-        //10. felt - Chance (Ikke færdig)
+        //10. felt - Chance
         GUI_Chance Street8 = new GUI_Chance();
-        Street8.setDescription("");
+        Street8.setDescription("Træk et chancekort");
         Street8.setSubText("Chance");
         fields[9] = Street8;
 
@@ -100,7 +94,6 @@ public class GameBoard {
         Street9.setBackGroundColor(Color.yellow);
         Street9.setRent("250");
         Street9.setDescription("");
-        Street9.setTextColor(Color.black);
         Street9.setSubText("Pris: 250");
         fields[10] = Street9;
 
@@ -110,16 +103,13 @@ public class GameBoard {
         Street10.setBackGroundColor(Color.yellow);
         Street10.setRent("250");
         Street10.setDescription("");
-        Street10.setTextColor(Color.black);
         Street10.setSubText("Pris: 250");
         fields[11] = Street10;
 
-        //13. felt - Gratis parkering (Ikke lavet....)
+        //13. felt - Gratis parkering
         GUI_Street Street11 = new GUI_Street();
         Street11.setTitle("Gratis Parkering");
-        Street11.setRent("");
         Street11.setDescription("");
-        Street11.setTextColor(Color.black);
         Street11.setSubText("Gratis parkering");
         fields[12] = Street11;
 
@@ -129,7 +119,6 @@ public class GameBoard {
         Street12.setBackGroundColor(Color.red);
         Street12.setRent("300");
         Street12.setDescription("");
-        Street12.setTextColor(Color.black);
         Street12.setSubText("Pris: 300");
         fields[13] = Street12;
 
@@ -139,13 +128,12 @@ public class GameBoard {
         Street13.setBackGroundColor(Color.red);
         Street13.setRent("300");
         Street13.setDescription("");
-        Street13.setTextColor(Color.black);
         Street13.setSubText("Pris: 300");
         fields[14] = Street13;
 
         //16. felt
         GUI_Chance Street14 = new GUI_Chance();
-        Street14.setDescription("");
+        Street14.setDescription("Træk et chancekort");
         Street14.setSubText("Chance");
         fields[15] = Street14;
 
@@ -155,7 +143,6 @@ public class GameBoard {
         Street15.setBackGroundColor(Color.yellow);
         Street15.setRent("350");
         Street15.setDescription("");
-        Street15.setTextColor(Color.black);
         Street15.setSubText("Pris: 350");
         fields[16] = Street15;
 
@@ -165,7 +152,6 @@ public class GameBoard {
         Street16.setBackGroundColor(Color.yellow);
         Street16.setRent("350");
         Street16.setDescription("");
-        Street16.setTextColor(Color.black);
         Street16.setSubText("Pris: 350");
         fields[17] = Street16;
 
@@ -182,7 +168,6 @@ public class GameBoard {
         Street18.setBackGroundColor(Color.green);
         Street18.setRent("400");
         Street18.setDescription("");
-        Street18.setTextColor(Color.black);
         Street18.setSubText("Pris: 400");
         fields[19] = Street18;
 
@@ -192,13 +177,12 @@ public class GameBoard {
         Street19.setBackGroundColor(Color.green);
         Street19.setRent("400");
         Street19.setDescription("");
-        Street19.setTextColor(Color.black);
         Street19.setSubText("Pris: 400");
         fields[20] = Street19;
 
         //22. felt - Chance
         GUI_Chance Street20 = new GUI_Chance();
-        Street20.setDescription("");
+        Street20.setDescription("Træk et chancekort");
         Street20.setSubText("Chance");
         fields[21] = Street20;
 
@@ -208,7 +192,6 @@ public class GameBoard {
         Street21.setBackGroundColor(Color.cyan);
         Street21.setRent("450");
         Street21.setDescription("");
-        Street21.setTextColor(Color.black);
         Street21.setSubText("Pris: 450");
         fields[22] = Street21;
 
@@ -218,7 +201,6 @@ public class GameBoard {
         Street22.setBackGroundColor(Color.cyan);
         Street22.setRent("450");
         Street22.setDescription("");
-        Street22.setTextColor(Color.black);
         Street22.setSubText("Pris: 450");
         fields[23] = Street22;
 
@@ -292,7 +274,6 @@ public class GameBoard {
                                 if (ja) {
                                     player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
                                     Street1.setOwnerName(player[j].getName());
-                                    Street1.setBorder(Color.red);
                                 }
                             }else{
                                 if(Street1.getOwnerName() == player[j].getName()){
