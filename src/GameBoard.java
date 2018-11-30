@@ -231,7 +231,10 @@ public class GameBoard {
         GUI_Car car4 = new GUI_Car(Color.BLACK, Color.BLACK, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL);
 
         // for at vælge navn kan vi bruge metoden getUserString
-        GUI_Player[] player = {new GUI_Player("Player 1", 1000, car1), new GUI_Player("Player 2", 1000, car2), new GUI_Player("Player 3", 1000, car3), new GUI_Player("Player 4", 1000, car4)};
+        GUI_Player[] player = {new GUI_Player("Player 1", 10, car1), new GUI_Player("Player 2", 1000, car2), new GUI_Player("Player 3", 1000, car3), new GUI_Player("Player 4", 1000, car4)};
+
+        //Introduktion
+        gui.showMessage("Introduktion");
 
         // Her vælger man hvor mange spillere der skal være med.
         int antalSpillere = gui.getUserInteger("Indtast antal spillere", 2, 4);
@@ -241,57 +244,106 @@ public class GameBoard {
         }
         int[] Ryk = new int[antalSpillere];
         int[] OldRyk = new int[antalSpillere];
+        int OldPlayer = 0;
 // Her får vi spillerne til at slå på skift.
         for (int i = 0; i < antalSpillere; i++) {
             while (player[i].getBalance() > 0) {
                 for (int j = 0; j < antalSpillere; j++) {
-                    OldRyk[j] = Ryk[j];
-                    // Definere et terningeslag.
-                    int Terningeslag = DiceCup.getCup();
+                    if (player[OldPlayer].getBalance() > 0) {
+                        OldRyk[j] = Ryk[j];
+                        // Definere et terningeslag.
+                        int Terningeslag = 1;
 
-                    // Går at man kan rykke fremad på banen.
-                    Ryk[j] += Terningeslag;
+                        // Går at man kan rykke fremad på banen.
+                        Ryk[j] += Terningeslag;
 
-                    gui.showMessage("Slå med terningen");
-                    fields[OldRyk[j]].setCar(player[j], false);
+                        gui.showMessage("Slå med terningen");
+                        fields[OldRyk[j]].setCar(player[j], false);
 
-                    // Går sådan at man kan loope banen igennem.
-                    if (Ryk[j] > 23) {
-                        Ryk[j] = (Ryk[j] % 23) - 1;
+                        // Går sådan at man kan loope banen igennem.
+                        if (Ryk[j] > 23) {
+                            Ryk[j] = (Ryk[j] % 23) - 1;
 
-                        //Når man passere/lander på start får man +400 på kontoen.
-                        player[j].setBalance(player[j].getBalance() + 400);
-                    }
-
-                    //Fængsel ellers opdater placering
-                    if (Ryk[j] == 18) {
-                        fields[6].setCar(player[j], true);
-                        gui.showMessage("Du kørte for stærkt og skal i fængsel!");
-                        Ryk[j] = 6;
-                    } else {
-                        fields[Ryk[j]].setCar(player[j], true);
-                    }
-
-                    // Printer terningen i gui.
-                    gui.setDie(Terningeslag);
-
-                    //For køb af grund TODO
-                    if(Ryk[j]>1 && Ryk[j]<3) {
-                        boolean ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
-                        if (ja){
-                            String rent = Street1.getRent();
-                            player[j].setBalance(player[j].getBalance()-Integer.valueOf(rent)); //*/
+                            //Når man passere/lander på start får man +400 på kontoen.
+                            player[j].setBalance(player[j].getBalance() + 400);
                         }
-                    }
 
-                    //For at trække chancekort TODO
-                    if(Ryk[j] == 3 || Ryk[j] == 9 || Ryk[j] == 15 || Ryk[j] == 21){
-                        //String kort;
-                        //kort = String.valueOf(Chance.getKort());
-                        //Chance.blandKort(kort);
-                        gui.displayChanceCard(Chance.getKort()[1]);
+                        //Fængsel ellers opdater placering
+                        if (Ryk[j] == 18) {
+                            fields[6].setCar(player[j], true);
+                            gui.showMessage("Du kørte for stærkt og skal i fængsel!");
+                            Ryk[j] = 6;
+                        } else {
+                            fields[Ryk[j]].setCar(player[j], true);
+                        }
 
+                        // Printer terningen i gui.
+                        gui.setDie(Terningeslag);
+
+                        //For køb af grund TODO
+                        if (Ryk[j] > 0 && Ryk[j] < 3) {
+                            boolean ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                            if (ja) {
+                                String rent = Street1.getRent();
+                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent)); //*/
+                            }
+                        }
+
+                        //For at trække chancekort TODO
+                        if (Ryk[j] == 3 || Ryk[j] == 9 || Ryk[j] == 15 || Ryk[j] == 21) {
+                            //String kort;
+                            //kort = String.valueOf(Chance.getKort());
+                            //Chance.blandKort(kort);
+                            gui.displayChanceCard(Chance.getKort()[1]);
+
+                        }
+                    } else {
+
+                        int turn1 = Math.max(player[0].getBalance(), player[1].getBalance());
+                        int turn2 = Math.max(player[2].getBalance(), player[3].getBalance());
+                        int winner = Math.max(turn1, turn2);
+                        String GameWinner = "";
+                        String GameWinner1 = "";
+                        String GameWinner2 = "";
+                        String GameWinner3 = "";
+
+                        if (antalSpillere == 2) {
+                            if (winner == player[0].getBalance()) {
+                                GameWinner = player[0].getName() + " ";
+                            }
+                            if (winner == player[1].getBalance()) {
+                                GameWinner1 = player[1].getName() + " ";
+                            }
+                        } else if (antalSpillere == 3) {
+                            if (winner == player[0].getBalance()) {
+                                GameWinner = player[0].getName() + " ";
+                            }
+                            if (winner == player[1].getBalance()) {
+                                GameWinner1 = player[1].getName() + " ";
+                            }
+                            if (winner == player[2].getBalance()) {
+                                GameWinner2 = player[2].getName() + " ";
+                            }
+                        } else if (antalSpillere == 4) {
+                            if (winner == player[0].getBalance()) {
+                                GameWinner = player[0].getName() + " ";
+                            }
+                            if (winner == player[1].getBalance()) {
+                                GameWinner1 = player[1].getName() + " ";
+                            }
+                            if (winner == player[2].getBalance()) {
+                                GameWinner2 = player[2].getName() + " ";
+                            }
+                            if (winner == player[3].getBalance()) {
+                                GameWinner3 = player[3].getName() + " ";
+                            }
+                        }
+
+
+                        gui.showMessage(GameWinner + GameWinner1 + GameWinner2 + GameWinner3 + "har vundet.");
+                        System.exit(0);
                     }
+                    OldPlayer = j;
                 }
             }
         }
