@@ -33,25 +33,30 @@ public class Chancekort {
         kort[13] = "Ryk frem til Skateparken for at lave fedetricks. Hvis det er ledigt, får du det GRATIS! Ellers skal du betale husleje";
     }
 
+    public String trækkort(){
+        String[] t = kort;
+        String træk = t[0];
+        for (int i = 0; i<t.length-1;i++){
+            t[i] = t[i+1];
+        }
+        t[t.length-1]= træk;
+        return træk;
+    }
+
     public void blandKort(){
         int into;
+        String[] b = new String[14];
         String bland;
         Random ran = new Random();
-        for (int i = kort.length-1; i>0 ;i--){
-            into = ran.nextInt(i+1);
-            bland = kort[into];
-            kort[into] = kort[i];
-            kort[i] = bland;
+        for (int i = b.length-1; i>0 ;i--){
+            into = ran.nextInt(i);
+            bland = b[into];
+            b[into] = b[i];
+            b[i] = bland;
+            //b[i] = this.kort[i];
         }
     }
 
-    public String trækkort(){
-        String træk = kort[0];
-        for (int i = 0; i<kort.length-1;i++){
-            kort[i] = kort[i+1];
-        }
-        kort[kort.length-1]= træk;
-        return træk;
-    }
+
 
 }
