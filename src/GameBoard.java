@@ -277,8 +277,8 @@ public class GameBoard {
                     //For køb af grund TODO
                     if(Ryk[j]>1 && Ryk[j]<3) {
                         boolean ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
-                        if (ja){/*
-                            String rent = getRent();
+                        if (ja){
+                            String rent = Street1.getRent();
                             player[j].setBalance(player[j].getBalance()-Integer.valueOf(rent)); //*/
                         }
                     }
