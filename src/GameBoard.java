@@ -316,8 +316,12 @@ public class GameBoard {
                         //For at trække chancekort TODO
                         if (Ryk[j] == 3 || Ryk[j] == 9 || Ryk[j] == 15 || Ryk[j] == 21) {
                             Chance.blandKort();
+                            System.out.println(Chance.kort[0]);
+                            System.out.println(Chance.kort[1]);
                             kort=Chance.trækkort();
                             gui.displayChanceCard(kort);
+
+
 
                             if(kort == Chance.kort[0]){
                                 fields[0].setCar(player[j], true);
