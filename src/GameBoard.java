@@ -1,5 +1,6 @@
 import gui_fields.*;
 import gui_main.GUI;
+
 import java.awt.*;
 
 public class GameBoard {
@@ -260,16 +261,27 @@ public class GameBoard {
                         //Når man passere/lander på start får man +400 på kontoen.
                         player[j].setBalance(player[j].getBalance() + 400);
                     }
-if(Ryk[j]==18){
-    fields[6].setCar(player[j], true);
-    gui.showMessage("Du kørte for stærkt og skal i fængsel!");
-    Ryk[j]=6;
-}else {
-    fields[Ryk[j]].setCar(player[j], true);
-}
+
+                    //Fængsel ellers opdater placering
+                    if (Ryk[j] == 18) {
+                        fields[6].setCar(player[j], true);
+                        gui.showMessage("Du kørte for stærkt og skal i fængsel!");
+                        Ryk[j] = 6;
+                    } else {
+                        fields[Ryk[j]].setCar(player[j], true);
+                    }
 
                     // Printer terningen i gui.
                     gui.setDie(Terningeslag);
+
+                    //For køb af grund TODO
+                    if(Ryk[j]>1 && Ryk[j]<3) {
+                        boolean ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                        if (ja){/*
+                            String rent = getRent();
+                            player[j].setBalance(player[j].getBalance()-Integer.valueOf(rent)); //*/
+                        }
+                    }
                 }
             }
         }
