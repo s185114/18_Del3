@@ -285,9 +285,11 @@ public class GameBoard {
                     }
 
                     //For at trække chancekort TODO
-                    if(Ryk[j]== 3 && Ryk[j] == 9 && Ryk[j] == 15 && Ryk[j] == 21){
-                        //String kort = Chance.getKort();
-                        //gui.displayChanceCard(kort);
+                    if(Ryk[j] == 3 || Ryk[j] == 9 || Ryk[j] == 15 || Ryk[j] == 21){
+                        //String kort;
+                        //kort = String.valueOf(Chance.getKort());
+                        //Chance.blandKort(kort);
+                        gui.displayChanceCard(Chance.getKort()[1]);
 
                     }
                 }
