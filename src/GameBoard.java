@@ -32,6 +32,7 @@ public class GameBoard {
         Street1.setDescription("");
         Street1.setTextColor(Color.black);
         Street1.setSubText("Pris: 100");
+        Street1.getOwnerName();
         fields[2] = Street1;
 
         //4. felt - Chancekort
@@ -204,7 +205,7 @@ public class GameBoard {
         //23. felt
         GUI_Street Street21 = new GUI_Street();
         Street21.setTitle("Vandlandet");
-        Street21.setBackGroundColor(Color.blue);
+        Street21.setBackGroundColor(Color.cyan);
         Street21.setRent("450");
         Street21.setDescription("");
         Street21.setTextColor(Color.black);
@@ -214,7 +215,7 @@ public class GameBoard {
         //24. felt
         GUI_Street Street22 = new GUI_Street();
         Street22.setTitle("Strandpromenaden");
-        Street22.setBackGroundColor(Color.blue);
+        Street22.setBackGroundColor(Color.cyan);
         Street22.setRent("450");
         Street22.setDescription("");
         Street22.setTextColor(Color.black);
@@ -245,6 +246,7 @@ public class GameBoard {
         int[] Ryk = new int[antalSpillere];
         int[] OldRyk = new int[antalSpillere];
         int OldPlayer = 0;
+        boolean ja;
 // Her får vi spillerne til at slå på skift.
         for (int i = 0; i < antalSpillere; i++) {
             while (player[i].getBalance() > 0) {
@@ -281,12 +283,22 @@ public class GameBoard {
                         gui.setDie(Terningeslag);
 
                         //For køb af grund TODO
-                        if (Ryk[j] > 0 && Ryk[j] < 3) {
-                            boolean ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
-                            if (ja) {
-                                String rent = Street1.getRent();
-                                player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent)); //*/
+                        if (Ryk[j] == 1) {
+                            if(Street1.getOwnerName()==null) {
+                                ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
+                                if (ja) {
+                                    String rent = Street1.getRent();
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent)); //*/
+                                    Street1.setOwnerName(player[j].getName());
+                                    Street1.setBorder(Color.red);
+                                }
+                            }else{
+                                if(Street1.getOwnerName().equals(player[j].getName())){
+                                }else{
+                                    Street1.getOwnerName();
+                                }
                             }
+
                         }
 
                         //For at trække chancekort TODO
@@ -294,7 +306,7 @@ public class GameBoard {
                             //String kort;
                             //kort = String.valueOf(Chance.getKort());
                             //Chance.blandKort(kort);
-                            gui.displayChanceCard(Chance.getKort()[1]);
+                            //gui.displayChanceCard(Chance.trækKort());
 
                         }
                     } else {
