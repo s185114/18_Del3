@@ -33,7 +33,7 @@ public class Chancekort {
         kort[13] = "Ryk frem til Skateparken for at lave fedetricks. Hvis det er ledigt, får du det GRATIS! Ellers skal du betale husleje";
         */
     }
-/*
+
     public String trækkort(){
        // String[] t = kort;
         String træk = kort[0];
@@ -59,7 +59,7 @@ public class Chancekort {
         }
     }
 
-*/
+
 
 
 }
