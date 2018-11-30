@@ -1,6 +1,8 @@
+import java.util.Random;
+
 public class Chancekort {
 
-    private String[] kort = new String[14];
+    public String[] kort = new String[14];
     {
         kort[0] = "Ryk frem til start og modtag 400";
 
@@ -31,15 +33,25 @@ public class Chancekort {
         kort[13] = "Ryk frem til Skateparken for at lave fedetricks. Hvis det er ledigt, får du det GRATIS! Ellers skal du betale husleje";
     }
 
-    public void blandKort(String n){
-
+    public void blandKort(){
+        int into;
+        String bland;
+        Random ran = new Random();
+        for (int i = kort.length-1; i>0 ;i--){
+            into = ran.nextInt(i+1);
+            bland = kort[into];
+            kort[into] = kort[i];
+            kort[i] = bland;
+        }
     }
 
-    public String[] getKort() {
-        return kort;
+    public String trækkort(){
+        String træk = kort[0];
+        for (int i = 0; i<kort.length-1;i++){
+            kort[i] = kort[i+1];
+        }
+        kort[kort.length-1]= træk;
+        return træk;
     }
 
-    public void setKort(String[] kort) {
-        this.kort = kort;
-    }
 }
