@@ -8,7 +8,7 @@ public class Chancekort {
 
         kort[1] = "Ryk 5 felter frem";
 
-        kort[2] = "Ryk frem til det nærmeste orange felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du betale husleje";
+        kort[2] = "Ryk frem til Burgerbaren. Hvis det er ledigt, får du det GRATIS! Ellers skal du betale husleje";
 
         kort[3] = "Ryk et felt frem eller tag et chancekort mere";
 
@@ -18,7 +18,7 @@ public class Chancekort {
 
         kort[6] = "Ryk frem til et gråt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du betale husleje";
 
-        kort[7] = "Du løslades uden omkostning. Behold dette kort indtil du får brug for det";
+        kort[7] = "Du skal i fængsel";
 
         kort[8] = "Ryk frem til Strandpromenaden";
 

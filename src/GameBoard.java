@@ -247,6 +247,8 @@ public class GameBoard {
         int[] OldRyk = new int[antalSpillere];
         int OldPlayer = 0;
         boolean ja;
+        boolean ja1;
+        String kort;
 // Her får vi spillerne til at slå på skift.
         for (int i = 0; i < antalSpillere; i++) {
             while (player[i].getBalance() > 0) {
@@ -301,13 +303,70 @@ public class GameBoard {
 
                         }
 
+
+
+
+
                         //For at trække chancekort TODO
                         if (Ryk[j] == 3 || Ryk[j] == 9 || Ryk[j] == 15 || Ryk[j] == 21) {
-                            //String kort;
-                            //kort = String.valueOf(Chance.getKort());
-                            //Chance.blandKort(kort);
-                            //gui.displayChanceCard(Chance.trækKort());
+                            Chance.blandKort();
+                            kort=Chance.trækkort();
+                            gui.displayChanceCard(kort);
 
+                            if(kort == Chance.kort[0]){
+                                fields[0].setCar(player[j], true);
+                                Ryk[j] = 0;
+                            }
+                            if(kort == Chance.kort[1]){
+                                fields[Ryk[j]+ 5].setCar(player[j], true);
+                                Ryk[j] = Ryk[j] + 5;
+                            }
+                            if(kort == Chance.kort[2]){
+                                fields[1].setCar(player[j], true);
+                                Ryk[j] = 1;
+                                //Der skal tilføjes at man får den gratis hvis den er ledig
+                                //if()
+                            }
+                            if(kort == Chance.kort[3]){
+                                ja1 = gui.getUserLeftButtonPressed("1 felt eller 1 Chancekort","1 felt", "1 Chancekort");
+                                if(ja1){
+                                    fields[Ryk[j]+ 1].setCar(player[j], true);
+                                    Ryk[j] = Ryk[j] + 1;
+                                }
+                                else{
+                                    Chance.trækkort();
+                                }
+                            }
+                            if(kort == Chance.kort[4]){
+                                player[j].setBalance(player[j].getBalance() - 200);
+                            }
+                            if(kort == Chance.kort[5]){
+
+                            }
+                            if(kort == Chance.kort[6]){
+
+                            }
+                            if(kort == Chance.kort[7]){
+
+                            }
+                            if(kort == Chance.kort[8]){
+
+                            }
+                            if(kort == Chance.kort[9]){
+
+                            }
+                            if(kort == Chance.kort[10]){
+
+                            }
+                            if(kort == Chance.kort[11]){
+
+                            }
+                            if(kort == Chance.kort[12]){
+
+                            }
+                            if(kort == Chance.kort[13]){
+
+                            }
                         }
                     } else {
 
