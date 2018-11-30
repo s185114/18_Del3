@@ -31,6 +31,10 @@ public class Chancekort {
         kort[13] = "Ryk frem til Skateparken for at lave fedetricks. Hvis det er ledigt, får du det GRATIS! Ellers skal du betale husleje";
     }
 
+    public void blandKort(String n){
+
+    }
+
     public String[] getKort() {
         return kort;
     }

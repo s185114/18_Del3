@@ -6,6 +6,7 @@ import java.awt.*;
 public class GameBoard {
     public static void main(String[] args) {
         GUI_Field[] fields = new GUI_Field[24];
+        Chancekort Chance = new Chancekort();
 
         // Start felt
         GUI_Start start = new GUI_Start();
@@ -281,6 +282,13 @@ public class GameBoard {
                             String rent = Street1.getRent();
                             player[j].setBalance(player[j].getBalance()-Integer.valueOf(rent)); //*/
                         }
+                    }
+
+                    //For at trække chancekort TODO
+                    if(Ryk[j]== 3 && Ryk[j] == 9 && Ryk[j] == 15 && Ryk[j] == 21){
+                        //String kort = Chance.getKort();
+                        //gui.displayChanceCard(kort);
+
                     }
                 }
             }
