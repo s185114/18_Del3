@@ -285,19 +285,25 @@ public class GameBoard {
                         gui.setDie(Terningeslag);
 
                         //For køb af grund TODO
-                        if (Ryk[j] == 1) {
+                        if (Ryk[j] == 2) {
+                            String rent = Street1.getRent();
                             if(Street1.getOwnerName()==null) {
                                 ja = gui.getUserLeftButtonPressed("Vil du købe grunden", "ja", "nej");
                                 if (ja) {
-                                    String rent = Street1.getRent();
-                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent)); //*/
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent));
                                     Street1.setOwnerName(player[j].getName());
                                     Street1.setBorder(Color.red);
                                 }
                             }else{
-                                if(Street1.getOwnerName().equals(player[j].getName())){
+                                if(Street1.getOwnerName() == player[j].getName()){
                                 }else{
-                                    Street1.getOwnerName();
+                                    for(int c=0;c<antalSpillere;c++) {
+                                        if (Street1.getOwnerName() == player[c].getName()) {
+                                            player[c].setBalance(player[c].getBalance() + Integer.valueOf(rent)/2);
+                                            System.out.println("Hej jeg er sand");
+                                        }
+                                    }
+                                    player[j].setBalance(player[j].getBalance() - Integer.valueOf(rent)/2);
                                 }
                             }
 
