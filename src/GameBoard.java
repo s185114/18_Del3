@@ -2,6 +2,7 @@ import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.*;
+import java.util.Random;
 
 public class GameBoard {
     public static void main(String[] args) {
@@ -214,7 +215,7 @@ public class GameBoard {
         GUI_Car car4 = new GUI_Car(Color.BLACK, Color.BLACK, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL);
 
         // for at vælge navn kan vi bruge metoden getUserString
-        GUI_Player[] player = {new GUI_Player("Player 1", 10, car1), new GUI_Player("Player 2", 1000, car2), new GUI_Player("Player 3", 1000, car3), new GUI_Player("Player 4", 1000, car4)};
+        GUI_Player[] player = {new GUI_Player("Player 1", 1000, car1), new GUI_Player("Player 2", 1000, car2), new GUI_Player("Player 3", 1000, car3), new GUI_Player("Player 4", 1000, car4)};
 
         //Introduktion
         gui.showMessage("Introduktion");
@@ -290,50 +291,55 @@ public class GameBoard {
 
                         }
 
-
-
-
-
                         //For at trække chancekort TODO
                         if (Ryk[j] == 3 || Ryk[j] == 9 || Ryk[j] == 15 || Ryk[j] == 21) {
+
+
+                            Random rand = new Random();
+                            int randomV=rand.nextInt(5);
+                            String uber=Chance.kort[randomV];
+
+                            /*
                             Chance.blandKort();
-                            System.out.println(Chance.kort[0]);
-                            System.out.println(Chance.kort[1]);
                             kort=Chance.trækkort();
-                            gui.displayChanceCard(kort);
+                            */
+                            gui.displayChanceCard(uber);
 
 
-
-                            if(kort == Chance.kort[0]){
-                                fields[0].setCar(player[j], true);
-                                Ryk[j] = 0;
+                            if(uber == Chance.kort[0]){
+                               /* fields[0].setCar(player[j], true);
+                                Ryk[j] = 0;*/
+                                System.out.println("Hey");
                             }
-                            if(kort == Chance.kort[1]){
-                                fields[Ryk[j]+ 5].setCar(player[j], true);
-                                Ryk[j] = Ryk[j] + 5;
+                            if(uber == Chance.kort[1]){
+                               /* fields[Ryk[j]+ 5].setCar(player[j], true);
+                                Ryk[j] = Ryk[j] + 5;*/
+                                System.out.println("du dum");
                             }
-                            if(kort == Chance.kort[2]){
-                                fields[1].setCar(player[j], true);
+                            if(uber == Chance.kort[2]){
+                               /* fields[1].setCar(player[j], true);
                                 Ryk[j] = 1;
                                 //Der skal tilføjes at man får den gratis hvis den er ledig
-                                //if()
+                                //if()*/
+                                System.out.println("xD");
                             }
-                            if(kort == Chance.kort[3]){
-                                ja1 = gui.getUserLeftButtonPressed("1 felt eller 1 Chancekort","1 felt", "1 Chancekort");
+                            if(uber == Chance.kort[3]){
+                               /* ja1 = gui.getUserLeftButtonPressed("1 felt eller 1 Chancekort","1 felt", "1 Chancekort");
                                 if(ja1){
                                     fields[Ryk[j]+ 1].setCar(player[j], true);
-                                    Ryk[j] = Ryk[j] + 1;
+                                    Ryk[j] = Ryk[j] + 1;*/
                                 }
                                 else{
-                                    Chance.trækkort();
+                                   // Chance.trækkort();
                                 }
-                            }
-                            if(kort == Chance.kort[4]){
+
+                            if(uber == Chance.kort[4]){
+                                //System.out.println(Chance.trækkort() == Chance.kort[4]);
                                 player[j].setBalance(player[j].getBalance() - 200);
-                            }
+                            }/*
                             if(kort == Chance.kort[5]){
 
-                            }
+
                             if(kort == Chance.kort[6]){
 
                             }
@@ -357,7 +363,7 @@ public class GameBoard {
                             }
                             if(kort == Chance.kort[13]){
 
-                            }
+                            }*/
                         }
                     } else {
 
@@ -401,7 +407,6 @@ public class GameBoard {
                             }
                         }
 
-
                         gui.showMessage(GameWinner + GameWinner1 + GameWinner2 + GameWinner3 + "har vundet.");
                         System.exit(0);
                     }
@@ -412,7 +417,5 @@ public class GameBoard {
         //bare for at teste valg af spillerantal
         Controller c = new Controller();
         c.passende_navn();
-
-
     }
 }
